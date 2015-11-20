@@ -89,7 +89,7 @@ Job History - http://[yarn]:19888
 
 
 
-#Running some of the Hadoop examples:
+#Running Hadoop examples:
 
 docker exec -it [yarn instance] /bin/bash
 Set PATH=$PATH:/usr/local/hadoop/bin 
