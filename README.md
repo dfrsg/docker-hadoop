@@ -50,25 +50,28 @@ _All of the images come bundled with the same set of SSH keys for user equivalen
 
 To create a cluster with a Namenode, Yarn server, and 3 Datanode’s issue the following docker run commands. 
 
-
 ```
-docker run -d --name namenode portworx/namenode
-```
-
-```
-docker run -d --name hadoop-yarn -e HADOOP_HOST_NAMENODE=[namenode] portworx/yarn
+docker network create hadoopnet
 ```
 
 ```
-docker run -d --name hadoop-node1 -e HADOOP_HOST_NAMENODE=[namenode] -e HADOOP_HOST_YARN=[yarn] portworx/datanode
+docker run -itd --net=hadoopnet --name namenode portworx/namenode
 ```
 
 ```
-docker run -d --name hadoop-node2 -e HADOOP_HOST_NAMENODE=[namenode] -e HADOOP_HOST_YARN=[yarn] portworx/datanode
+docker run -itd --net=hadoopnet --name hadoop-yarn -e HADOOP_HOST_NAMENODE=[namenode] portworx/yarn
 ```
 
 ```
-docker run -d --name hadoop-node3 -e HADOOP_HOST_NAMENODE=[namenode] -e HADOOP_HOST_YARN=[yarn] portworx/datanode
+docker run -itd --net=hadoopnet --name hadoop-node1 -e HADOOP_HOST_NAMENODE=[namenode] -e HADOOP_HOST_YARN=[yarn] portworx/datanode
+```
+
+```
+docker run -itd --net=hadoopnet --name hadoop-node2 -e HADOOP_HOST_NAMENODE=[namenode] -e HADOOP_HOST_YARN=[yarn] portworx/datanode
+```
+
+```
+docker run -itd --net=hadoopnet --name hadoop-node3 -e HADOOP_HOST_NAMENODE=[namenode] -e HADOOP_HOST_YARN=[yarn] portworx/datanode
 ```
 
 
@@ -89,10 +92,11 @@ Job History - http://[yarn]:19888
 
 
 
-#Running some of the Hadoop examples:
+#Running Hadoop examples:
 
 docker exec -it [yarn instance] /bin/bash
-Set the PATH to PATH=$PATH:/usr/local/hadoop/bin 
+
+Set PATH=$PATH:/usr/local/hadoop/bin 
 HADOOP_PREFIX=/usr/local/hadoop
 
 
