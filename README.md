@@ -92,7 +92,7 @@ Job History - http://[yarn]:19888
 #Running some of the Hadoop examples:
 
 docker exec -it [yarn instance] /bin/bash
-Set the PATH to PATH=$PATH:/usr/local/hadoop/bin 
+Set PATH=$PATH:/usr/local/hadoop/bin 
 HADOOP_PREFIX=/usr/local/hadoop
 
 
