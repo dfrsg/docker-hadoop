@@ -6,7 +6,7 @@ The Portworx hadoop-docker project is a collection of Docker Images for running 
 
 _Currently the only Hadoop version supported is 2.7.1_
 
-The Images also support Portworx Persistent Storage layer for Docker. With Persistent Storage Volumes the Namnode and all Datanodes can be stopped, restarted, migrated and cloned while retaining all data.
+The Images also support Portworx Persistent Storage layer for Docker. With Persistent Storage Volumes the Namenode and all Datanodes can be stopped, restarted, migrated and cloned while retaining all data.
 
 _Volumes are currently configured for /hdfs/volume1_
 
