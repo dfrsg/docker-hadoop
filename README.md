@@ -4,11 +4,11 @@ Hadoop in Docker with Networking and Persistent Storage
 
 The Portworx hadoop-docker project is a collection of Docker Images for running a multi-node Hadoop cluster. Where as other Hadoop Docker Images are meant to be run in a single image or one host these images can be used in a multi-host environment with Docker 1.9 networking.
 
-_Currently the only Hadoop version supported is 2.7.1
+_Currently the only Hadoop version supported is 2.7.1_
 
 The Images also support Portworx Persistent Storage layer for Docker. With Persistent Storage Volumes the Namnode and all Datanodes can be stopped, restarted, migrated and cloned while retaining all data.
 
-_Volumes are currently configured for /hdfs/volume1
+_Volumes are currently configured for /hdfs/volume1_
 
 # The Images
 
@@ -46,7 +46,7 @@ docker pull portworx/datanode:2.7.1
 
 Make sure you have pulled all three images. Also make sure that SELinux is disabled on the host. 
 
-_All of the images come bundled with the same set of SSH keys for user equivalence. Note that this setup isn't meant to be run in secure environments. 
+_All of the images come bundled with the same set of SSH keys for user equivalence. Note that this setup isn't meant to be run in secure environments._
 
 To create a cluster with a namenode, yarn server, and 3 datanodes issue the following docker run commands. 
 
