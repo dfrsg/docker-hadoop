@@ -55,11 +55,11 @@ docker network create hadoopnet
 ```
 
 ```
-docker run -itd --net=hadoopnet --name namenode portworx/namenode
+docker run -itd -p 50070:50070 --net=hadoopnet --name namenode portworx/namenode
 ```
 
 ```
-docker run -itd --net=hadoopnet --name hadoop-yarn -e HADOOP_HOST_NAMENODE=[namenode] portworx/yarn
+docker run -itd -p 8088:8088 -p 19888:19888 --net=hadoopnet --name hadoop-yarn -e HADOOP_HOST_NAMENODE=[namenode] portworx/yarn
 ```
 
 ```
