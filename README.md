@@ -1,10 +1,10 @@
-#Apache Hadoop 2.7.1 Docker image
+#Apache Hadoop 2.7.6 Docker image
 
 Hadoop in Docker with Networking and Persistent Storage
 
 The Portworx docker-hadoop project is a collection of Docker Images for running a multi-node Hadoop cluster. Whereas other Hadoop Docker Images are meant to be run in a single image, or one host, these images can be used in a multi-host environment with Docker 1.9 networking.
 
-_Currently the only Hadoop version supported is 2.7.1_
+_Currently the only Hadoop version supported is 2.7.6_
 
 The Images also support Portworx Persistent Storage layer for Docker. With Persistent Storage Volumes the Namenode and all Datanodes can be stopped, restarted, migrated and cloned while retaining all data.
 
@@ -30,15 +30,15 @@ _Volumes are currently configured for /hdfs/volume1_
 These images are all available from the Docker Hub automated build repository.
 
 ```
-docker pull portworx/namenode:2.7.1
+docker pull portworx/namenode:2.7.6
 ```
 
 ```
-docker pull portworx/yarn:2.7.1
+docker pull portworx/yarn:2.7.6
 ```
 
 ```
-docker pull portworx/datanode:2.7.1
+docker pull portworx/datanode:2.7.6
 ```
 
 
@@ -102,9 +102,9 @@ HADOOP_PREFIX=/usr/local/hadoop
 
 ```
 cd $HADOOP_PREFIX
-hadoop jar $HADOOP_PREFIX/share/hadoop/mapreduce/hadoop-mapreduce-examples-2.7.1.jar teragen 10000 /teragen
+hadoop jar $HADOOP_PREFIX/share/hadoop/mapreduce/hadoop-mapreduce-examples-2.7.6.jar teragen 10000 /teragen
 
-hadoop jar $HADOOP_PREFIX/share/hadoop/mapreduce/hadoop-mapreduce-examples-2.7.1.jar randomwriter randomout
+hadoop jar $HADOOP_PREFIX/share/hadoop/mapreduce/hadoop-mapreduce-examples-2.7.6.jar randomwriter randomout
 # Check output
 bin/hdfs dfs -cat randomout/*
 ```
