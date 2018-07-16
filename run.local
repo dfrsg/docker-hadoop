@@ -5,7 +5,11 @@ docker run -itd -p 50070:50070 --net=hadoopnet --name namenode 6ea4b5af6ca7
 
 docker run -itd -p 8088:8088 -p 19888:19888 --net=hadoopnet --name hadoop-yarn -e HADOOP_HOST_NAMENODE=localhost a27ea6e1396f
 
-docker run -itd --net=hadoopnet --name hadoop-node1 -e HADOOP_HOST_NAMENODE=localhost -e HADOOP_HOST_YARN=localhost 171d5612cef2
-docker run -itd --net=hadoopnet --name hadoop-node2 -e HADOOP_HOST_NAMENODE=localhost -e HADOOP_HOST_YARN=localhost 171d5612cef2
-docker run -itd --net=hadoopnet --name hadoop-node3 -e HADOOP_HOST_NAMENODE=localhost -e HADOOP_HOST_YARN=localhost 171d5612cef2
+docker run -itd --net=hadoopnet --name hadoop-node1 -e HADOOP_HOST_NAMENODE=namenode -e HADOOP_HOST_YARN=hadoop-yarn 171d5612cef2
+docker run -itd --net=hadoopnet --name hadoop-node2 -e HADOOP_HOST_NAMENODE=namenode -e HADOOP_HOST_YARN=hadoop-yarn 171d5612cef2
+docker run -itd --net=hadoopnet --name hadoop-node3 -e HADOOP_HOST_NAMENODE=namenode -e HADOOP_HOST_YARN=hadoop-yarn 171d5612cef2
+
+
+# docker network connect [OPTIONS] NETWORK CONTAINER
+
 
